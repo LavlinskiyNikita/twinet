@@ -1,0 +1,26 @@
+@import './var';
+@import '../component/asidbarMenu/style';
+@import '../component/MiniProfile/style';
+@import '../component/Post/style';
+@import '../component/Popup/style';
+@import '../component/Input/style';
+@import '../component/User/style.scss';
+@import '../component/UI/filterItem/style';
+@import '../component/filter/style';
+@import '../search/style';
+@import '../setting/setting.scss';
+@import '../profile/style.scss';
+@import './component/home';
+@import './main';
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: content-box;
+}
+
+body {
+  background-color: $base;
+}

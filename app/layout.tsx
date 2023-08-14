@@ -1,5 +1,8 @@
-import './globals.css'
+import MiniProfile from "./component/MiniProfile/MiniProfile";
+import AsidBarMenu from "./component/asidbarMenu/AsidBarMenu";
+import "./style/style.scss";
 import { Inter } from 'next/font/google'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,10 +15,22 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) 
+{
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="wrapper">
+          <AsidBarMenu/>
+          <main className="main">
+            <div className="main__contnent">
+              <div className="main__conteiner">
+                {children}
+              </div>
+            </div>
+          </main>
+        </div>
+        </body>
     </html>
   )
 }

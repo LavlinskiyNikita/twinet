@@ -1,95 +1,43 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+import Post from "./component/Post/Post"
+import Popup from "./component/Popup/Popup"
+import MiniProfile from "./component/MiniProfile/MiniProfile"
+import Button from "./component/UI/button/Button"
+import { useState } from "react"
+import Input from "./component/Input/Input"
+
+
 
 export default function Home() {
+
+  const [visualModel, setVisualModal] = useState(false)
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="home">
+        <div className="home__twin">
+          <div className="home__person">
+            <div className="home__person-avatar">
+              <img src="" width={36} height={36} alt="" className="home__img"/>
+            </div>
+            <div className="home__write">Write...</div>
+          </div>
+          <Button onClick={() => setVisualModal(true)} >twin</Button>
+        </div>
+        <div className="home__post">
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <MiniProfile/>
+      {
+        visualModel ? <Popup setModal={setVisualModal}>
+          <form action="post">
+            <Input placeholder='видите текст'/>
+            <Input placeholder='вставтье ссылку на изображения'/>
+            <Button type="submit">отправить</Button>
+          </form>
+        </Popup> : undefined
+      }
+    </>
   )
 }

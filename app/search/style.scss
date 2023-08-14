@@ -1,0 +1,21 @@
+.search {
+  width: 100%;
+}
+
+.search__top-bar {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.search__bar {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+.search__user {
+  margin-bottom: 40px;
+}
+
+.search__filter {
+  margin-bottom: 40px;
+}
